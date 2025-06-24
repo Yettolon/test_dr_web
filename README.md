@@ -22,6 +22,7 @@ python main.py
 
 ## 🧪 Пример использования
 
-![alt text](image.png)
+<img width="646" alt="image" src="https://github.com/user-attachments/assets/bb0e20f1-7018-4f32-bf0b-0dfdefda66d0" />
 
-![alt text](image-1.png)
+
+<img width="646" alt="image" src="https://github.com/user-attachments/assets/295caf1b-a725-40a2-b4b4-b5dc4a4b90a8" />
