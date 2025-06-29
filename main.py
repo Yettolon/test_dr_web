@@ -12,11 +12,7 @@ class InMemoryDB:
         self._counts: Dict[str, int] = defaultdict(int)
         self._history: List[Tuple[Dict[str, str], Dict[str, int]]] = []
 
-    def _save_state(self) -> None:
-        self._history.append((deepcopy(self._db), deepcopy(self._counts)))
-
     def set(self, key: str, value: str) -> None:
-        self._save_state()
         old_value = self._db.get(key)
         if old_value:
             self._counts[old_value] -= 1
@@ -28,7 +24,6 @@ class InMemoryDB:
 
     def unset(self, key: str) -> None:
         if key in self._db:
-            self._save_state()
             old_value = self._db.pop(key)
             self._counts[old_value] -= 1
 
@@ -52,7 +47,7 @@ class InMemoryDB:
         if not self._history:
             print("NO TRANSACTION")
         else:
-            self._history.clear()
+            self._history.pop()
 
 
 class Command(ABC):
